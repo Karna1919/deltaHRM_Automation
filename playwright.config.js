@@ -55,7 +55,7 @@ export default defineConfig({
 
     {
       name: 'firefox',
-      dependencies: ['setup'],
+   
       testIgnore: /.*\.setup\.js$/,
       use: {
         ...devices['Desktop Firefox'],
@@ -65,7 +65,7 @@ export default defineConfig({
 
     {
       name: 'webkit',
-      dependencies: ['setup'],
+
       testIgnore: /.*\.setup\.js$/,
       use: {
         ...devices['Desktop Safari'],

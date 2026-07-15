@@ -1,4 +1,4 @@
-import{test,expect}from"../Fixtures/loginFicture.js"
+import{test,expect}from"../../Fixtures/baseFixture.js"
 
 test("login by using fixture",async({loginPage})=>
 {

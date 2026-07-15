@@ -15,7 +15,7 @@ class Login
         await this.userNameTxt.fill(username)
         await this.passwordTxt.fill(password)
         await this.submitBtn.click()
-        await this.page.waitForLoadState('networkidle')
+        await this.page.waitForLoadState('load')
     }
 }
 export default Login
