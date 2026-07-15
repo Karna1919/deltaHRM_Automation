@@ -1,0 +1,8 @@
+import { test } from "@playwright/test"
+import Login from "../../delta_Page_Object_Model/loginPage"
+
+test("Login with Valid Credentials", async (params) => {
+
+    let loginPg = new Login(page)
+    await loginPg.loginToApplication()
+})
