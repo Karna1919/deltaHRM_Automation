@@ -36,18 +36,41 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'setup',
+      testMatch: /.*\.setup\.js$/,
+     
+    },
+
+    {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      // dependencies: ['setup'],
+
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: './StorageState/playwrightStorageState/auth.json',
+      },
+            testIgnore: /.*\.setup\.js$/,
+
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      dependencies: ['setup'],
+      testIgnore: /.*\.setup\.js$/,
+      use: {
+        ...devices['Desktop Firefox'],
+        storageState: './StorageState/playwrightStorageState/auth.json',
+      },
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      dependencies: ['setup'],
+      testIgnore: /.*\.setup\.js$/,
+      use: {
+        ...devices['Desktop Safari'],
+        storageState: './StorageState/playwrightStorageState/auth.json',
+      },
     },
 
     /* Test against mobile viewports. */
