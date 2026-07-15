@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test,expect } from '@playwright/test';
 import path from 'path';
 import fs from 'fs';
 import Login from '../delta_Page_Object_Model/loginPage.js';
@@ -15,6 +15,8 @@ test('Create Playwright storage state', async ({ page }) => {
         process.env.User_Name,
         process.env.Password
     );
+
+    await expect(page).toHaveURL(/dashboard/);
 
     await page.context().storageState({ path: storageStatePath });
 });
