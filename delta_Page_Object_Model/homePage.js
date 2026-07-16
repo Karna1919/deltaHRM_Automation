@@ -1,3 +1,7 @@
+  /**
+       * @param {import('playwright').Page} page
+       */
+
 class HomePage
 {
     constructor(page)
@@ -16,6 +20,8 @@ class HomePage
         this.claimLink=page.getByRole("link",{name:"Claim"})
         this.buzzLink=page.getByRole("link",{name:"Buzz"})
         this.leaveLink=page.getByRole("link",{name:"Leave"})
+        this.profilePic=page.locator("//span[@class='oxd-userdropdown-tab']//img[@alt='profile picture']")
+        this.changePasswordLink=page.locator("//a[.='Change Password']")
     }
 }
 export default HomePage

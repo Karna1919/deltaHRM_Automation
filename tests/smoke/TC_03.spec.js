@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import HomePage from '../../delta_Page_Object_Model/homePage.js';
 import { AdminPage } from '../../delta_Page_Object_Model/adminPage.js';
 
-test.use({ storageState: './StorageState/playwrightStorageState/auth.json' });
+//test.use({ storageState: './StorageState/playwrightStorageState/auth.json' });
 
 test('TC03 - Verify Admin submodules using storage state', async ({ page }) => {
     await page.goto(process.env.URL);
@@ -19,8 +19,5 @@ test('TC03 - Verify Admin submodules using storage state', async ({ page }) => {
     await expect(adminPage.nationalitiesLink).toBeVisible();
     await expect(adminPage.corporateBrandingLink).toBeVisible();
     await expect(adminPage.configurationLink).toBeVisible();
-
-    
-
 
 });
