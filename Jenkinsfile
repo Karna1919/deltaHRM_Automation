@@ -3,7 +3,8 @@ pipeline {
     agent any
 
     environment {
-        Login = credentials('admin_credentials')
+        LOGIN = credentials('admin_credentials')
+        BASE_URL = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
     }
  
     tools {
