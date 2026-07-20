@@ -53,6 +53,17 @@ parameters {
         }
 
        
+          stage('Create Storage State') {
+        steps {
+            sh '''
+                export URL=$URL
+                export User_Name=$LOGIN_USR
+                export Password=$LOGIN_PSW
+
+                npx playwright test tests/auth.setup.js
+            '''
+        }
+    }
  
         stage('Run Playwright Tests') {
  

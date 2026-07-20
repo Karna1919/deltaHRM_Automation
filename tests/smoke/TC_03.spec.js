@@ -10,6 +10,7 @@ test('TC03 - Verify Admin submodules using storage state', async ({ page }) => {
     const homePage = new HomePage(page);
     const adminPage = new AdminPage(page);
 
+    await page.waitForLoadState('networkidle');
     await homePage.adminLink.click();
 
     await expect(adminPage.userManagementLink).toBeVisible();
