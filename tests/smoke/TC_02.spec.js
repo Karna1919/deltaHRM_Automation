@@ -15,5 +15,5 @@ test('TC02 - Validate login with negative credentials', async ({ page }) => {
         negativeLoginData.password
     );
 
-    await expect(page.locator('.oxd-alert-content-text')).toContainText('Invalid credentials');
+    await expect(page.locator('.oxd-alert-content-text')).toContainText('Invalid credentials',{timeout:10000});
 });

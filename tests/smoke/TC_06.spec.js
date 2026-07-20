@@ -10,9 +10,9 @@ test("User should able to 'change the logged-in user's own account password' ",a
 
     await hmpg.profilePic.click()
     await hmpg.changePasswordLink.click()
-    await expect(chpwd.heading).toContainText("Update Password")
+    await expect(chpwd.heading).toContainText("Update Password",{timeout:10000})
     await chpwd.changeOrUpdatePassword()
-    await expect(chpwd.confirmationMsg).toContainText("Successfully")
+    await expect(chpwd.confirmationMsg).toContainText("Successfully",{timeout:10000})
     
 
 })

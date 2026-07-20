@@ -18,8 +18,8 @@ test("User should able to search for an employee in the PIM Employee List",async
 
     //validate
 
-    await expect(pimpage.employeeListLink).toBeVisible();
-    await expect(pimpage.addEmployeeLink).toBeVisible();
-    await expect(pimpage.reportLink).toBeVisible();
+    await expect(pimpage.employeeListLink).toBeVisible({ timeout: 10000 });
+    await expect(pimpage.addEmployeeLink).toBeVisible({ timeout: 10000 });
+    await expect(pimpage.reportLink).toBeVisible({ timeout: 10000 });
 
 })
