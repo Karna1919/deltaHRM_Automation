@@ -43,11 +43,11 @@ pipeline {
         stage('Run Playwright Tests') {
             steps {
                 bat """
-                set User_Name=%LOGIN_USR%
-                set Password=%LOGIN_PSW%
-                set BASE_URL=%BASE_URL%
-                 npm run ${params.Scripts}
-                """
+                    set URL=%BASE_URL%
+                    set LOGIN_USR=%LOGIN_USR%
+                    set LOGIN_PSW=%LOGIN_PSW%
+                    npm run ${params.Scripts}
+                    """
             }
         }
     }
