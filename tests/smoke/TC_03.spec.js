@@ -12,7 +12,7 @@ test('TC03 - Verify Admin submodules using storage state', async ({ page }) => {
 
     await page.waitForLoadState('networkidle');
     await homePage.adminLink.click();
-
+    await page.waitForLoadState('load');
     await expect(adminPage.userManagementLink).toBeVisible();
     await expect(adminPage.jobLink).toBeVisible();
     await expect(adminPage.organizationLink).toBeVisible();
