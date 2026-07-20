@@ -26,7 +26,7 @@ pipeline {
  
             steps {
  
-                sh 'npm install'
+                bat 'npm install'
             }
         }
  
@@ -34,7 +34,7 @@ pipeline {
  
             steps {
  
-                sh 'npx playwright install'
+                bat 'npx playwright install'
             }
         }
  
