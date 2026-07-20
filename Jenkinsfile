@@ -41,12 +41,12 @@ pipeline {
         stage('Run Playwright Tests') {
  
             steps {
-
-              
-               
-               // sh 'npx playwright test'
-               sh "npm run ${params.Scripts}"
-            }
+        sh """
+            export User_Name=$LOGIN_USR
+            export Password=$LOGIN_PSW
+            npm run ${params.Scripts}
+        """
+    }
         }
     }
  
