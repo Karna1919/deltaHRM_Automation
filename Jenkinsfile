@@ -46,7 +46,7 @@ pipeline {
                 set User_Name=%LOGIN_USR%
                 set Password=%LOGIN_PSW%
                 set BASE_URL=%BASE_URL%
-                npm run %Scripts%
+                 npm run ${params.Scripts}
                 """
             }
         }
