@@ -37,6 +37,14 @@ pipeline {
                 sh 'npx playwright install'
             }
         }
+
+         parameters {
+                choice(
+                    name: 'Scripts',
+                    choices: ['smokeTest', 'regressionTest'],
+                    description: 'Select Test Suite'
+                )
+            }
  
         stage('Run Playwright Tests') {
  
@@ -44,7 +52,7 @@ pipeline {
         sh """
             export User_Name=$LOGIN_USR
             export Password=$LOGIN_PSW
-            npm run ${params.scripts}
+            npm run ${params.Scripts}
         """
     }
 }
