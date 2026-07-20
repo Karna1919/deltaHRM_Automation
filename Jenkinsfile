@@ -4,10 +4,11 @@ pipeline {
 
     environment {
         LOGIN = credentials('admin_credentials')
+        BASE_URL = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
     }
  
     tools {
-        nodejs 'NodeJS18'
+        nodejs 'Nodejs'
     }
  
     stages {
@@ -46,7 +47,7 @@ pipeline {
             npm run ${params.scripts}
         """
     }
-        }
+}
     }
  
     post {
