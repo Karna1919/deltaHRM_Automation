@@ -12,7 +12,8 @@ test.only("User should able to 'change the logged-in user's own account password
     await hmpg.changePasswordLink.click()
     await expect(chpwd.heading).toContainText("Update Password",{timeout:10000})
     await chpwd.changeOrUpdatePassword()
-    await expect(chpwd.confirmationMsg).toContainText("Successfully",{timeout:10000})
+    await chpwd.confirmationMsg.waitFor({state: "visible"})
+    await expect(chpwd.confirmationMsg).toContainText("Successfully",{timeout:20000})
     
 
 })

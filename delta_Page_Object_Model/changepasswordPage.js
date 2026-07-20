@@ -19,6 +19,7 @@ class ChangePassword
         await this.paawordTxtField.fill("Admin@123")
         await this.ConfirmPaawordTxtField.fill("Admin@123")
         await this.saveBtn.click()
+        
     }
 }
 export default ChangePassword
