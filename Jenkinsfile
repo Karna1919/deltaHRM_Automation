@@ -38,9 +38,14 @@ pipeline {
             }
         }
  
-       stage('Run Tests'){
-    steps{
-        bat "npm run ${params.Scripts}"
+        stage('Run Playwright Tests') {
+ 
+            steps {
+        sh """
+            export User_Name=$LOGIN_USR
+            export Password=$LOGIN_PSW
+            npm run ${params.scripts}
+        """
     }
 }
     }
