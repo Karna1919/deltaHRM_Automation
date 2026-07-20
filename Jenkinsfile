@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        Login = credentials('admin_credentials')
+        LOGIN = credentials('admin_credentials')
     }
  
     tools {
@@ -41,9 +41,11 @@ pipeline {
  
             steps {
 
-              
+              sh '''
+             export User_Name=$LOGIN_USR
+            export Password=$LOGIN_PSW
                
-               // sh 'npx playwright test'
+
                sh "npm run ${params.Scripts}"
             }
         }
