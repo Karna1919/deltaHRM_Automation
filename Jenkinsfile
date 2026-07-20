@@ -38,12 +38,11 @@ pipeline {
             }
         }
  
-        stage('Run Playwright Tests') {
- 
-            steps {
-            npm run ${params.Scripts}
+       stage('Run Tests'){
+    steps{
+        bat "npm run ${params.Scripts}"
     }
-        }
+}
     }
  
     post {
