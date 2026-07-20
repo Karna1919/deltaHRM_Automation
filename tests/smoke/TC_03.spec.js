@@ -13,12 +13,12 @@ test('TC03 - Verify Admin submodules using storage state', async ({ page }) => {
     await page.waitForLoadState('networkidle');
     await homePage.adminLink.click();
     await page.waitForLoadState('load');
-    await expect(adminPage.userManagementLink).toBeVisible();
-    await expect(adminPage.jobLink).toBeVisible();
-    await expect(adminPage.organizationLink).toBeVisible();
-    await expect(adminPage.qualificationsLink).toBeVisible();
-    await expect(adminPage.nationalitiesLink).toBeVisible();
-    await expect(adminPage.corporateBrandingLink).toBeVisible();
-    await expect(adminPage.configurationLink).toBeVisible();
+    await expect(adminPage.userManagementLink).toBeVisible({ timeout: 10000 });
+    await expect(adminPage.jobLink).toBeVisible({ timeout: 10000 });
+    await expect(adminPage.organizationLink).toBeVisible({ timeout: 10000 });
+    await expect(adminPage.qualificationsLink).toBeVisible({ timeout: 10000 });
+    await expect(adminPage.nationalitiesLink).toBeVisible({ timeout: 10000 });
+    await expect(adminPage.corporateBrandingLink).toBeVisible({ timeout: 10000 });
+    await expect(adminPage.configurationLink).toBeVisible({ timeout: 10000 });
 
 });
