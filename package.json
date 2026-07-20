@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "smokeTest":"npx playwright test tests/smoke",
-    "regressionTest":"npx playwright test"
+    "smokeTest": "npx playwright test tests/smoke",
+    "regressionTest": "npx playwright test"
   },
   "keywords": [],
   "author": "",

@@ -5,7 +5,7 @@ import { AdminPage } from '../../delta_Page_Object_Model/adminPage.js';
 //test.use({ storageState: './StorageState/playwrightStorageState/auth.json' });
 
 test('TC03 - Verify Admin submodules using storage state', async ({ page }) => {
-    await page.goto(process.env.URL);
+    await page.goto(process.env.BASE_URL);
 
     const homePage = new HomePage(page);
     const adminPage = new AdminPage(page);

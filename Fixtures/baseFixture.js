@@ -4,7 +4,7 @@ export const test=base.extend({
     loginPage:async({page},use)=>
     {
         
-        await page.goto(process.env.URL)
+        await page.goto(process.env.BASE_URL)
     
         await use(page)
         
