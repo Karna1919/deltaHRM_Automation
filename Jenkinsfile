@@ -11,13 +11,19 @@ pipeline {
            nodejs 'NodeJS18'
     }
  
-   parameters {
-                choice(
-                    name: 'Scripts',
-                    choices: ['smokeTest', 'regressionTest'],
-                    description: 'Select Test Suite'
-                )
-            }
+parameters {
+    choice(
+        name: 'Scripts',
+        choices: ['smokeTest', 'regressionTest'],
+        description: 'Select Test Suite'
+    )
+
+    string(
+        name: 'URL',
+        defaultValue: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+        description: 'Application URL'
+    )
+}
 
     stages {
  
