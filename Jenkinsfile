@@ -40,14 +40,12 @@ pipeline {
         stage('Run Playwright Tests') {
  
             steps {
-
-              sh '''
-             export User_Name=$LOGIN_USR
+        sh """
+            export User_Name=$LOGIN_USR
             export Password=$LOGIN_PSW
-               
-
-               sh "npm run ${params.Scripts}"
-            }
+            npm run ${params.Scripts}
+        """
+    }
         }
     }
  
