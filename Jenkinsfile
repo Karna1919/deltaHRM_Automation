@@ -8,9 +8,17 @@ pipeline {
     }
  
     tools {
-        nodejs 'Nodejs'
+           nodejs 'NodeJS18'
     }
  
+   parameters {
+                choice(
+                    name: 'Scripts',
+                    choices: ['smokeTest', 'regressionTest'],
+                    description: 'Select Test Suite'
+                )
+            }
+
     stages {
  
         stage('Clone Code') {
@@ -38,20 +46,19 @@ pipeline {
             }
         }
 
-         parameters {
-                choice(
-                    name: 'Scripts',
-                    choices: ['smokeTest', 'regressionTest'],
-                    description: 'Select Test Suite'
-                )
-            }
+       
  
         stage('Run Playwright Tests') {
  
-            steps {
+          steps {
         sh """
-            export User_Name=$LOGIN_USR
-            export Password=$LOGIN_PSW
+            export URL='${params.URL}'
+            export User_Name='$LOGIN_USR'
+            export Password='$LOGIN_PSW'
+
+            echo "Running Suite: ${params.Scripts}"
+            echo "URL: \$URL"
+
             npm run ${params.Scripts}
         """
     }
@@ -66,7 +73,7 @@ pipeline {
                 allowMissing: false,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
-                reportDir: 'tests',
+               reportDir: 'playwright-report',
                 reportFiles: 'index.html',
                 reportName: 'Playwright HTML Report'
             ])
