@@ -1,43 +1,66 @@
 pipeline {
  
     agent any
- 
-    parameters {
-        string(
-            name: 'SPEC_FILE',
-            defaultValue: 'tests/login.spec.js',
-            description: 'Enter Playwright spec file'
-        )
- 
-    choice(
-        name: 'BROWSER',
-        choices: ['chromium', 'firefox', 'webkit'],
-        description: 'Select browser'
-    )
+
+    environment {
+        Login = credentials('admin_credentials')
     }
  
     tools {
-        nodejs 'NodeJS18'
+        nodejs 'Nodejs'
     }
  
     stages {
  
-        stage('Install Dependencies') {
+        stage('Clone Code') {
+ 
             steps {
-                bat 'npm install'
+ 
+                git branch: 'master',
+                url: 'https://github.com/Karna1919/deltaHRM_Automation.git'
             }
         }
  
-        stage('Run Playwright Test') {
+        stage('Install Dependencies') {
+ 
             steps {
-                bat "npx playwright test ${params.SPEC_FILE}"
+ 
+                sh 'npm install'
+            }
+        }
+ 
+        stage('Install Playwright Browsers') {
+ 
+            steps {
+ 
+                sh 'npx playwright install'
+            }
+        }
+ 
+        stage('Run Playwright Tests') {
+ 
+            steps {
+
+              
+               
+               // sh 'npx playwright test'
+               sh "npm run ${params.Scripts}"
             }
         }
     }
  
     post {
+ 
         always {
-            archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
+ 
+            publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'tests',
+                reportFiles: 'index.html',
+                reportName: 'Playwright HTML Report'
+            ])
         }
     }
 }
