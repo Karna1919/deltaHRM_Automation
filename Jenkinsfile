@@ -62,7 +62,7 @@ npm run ${params.Scripts}
             echo "Running Suite: ${params.Scripts}"
             echo "URL: \$URL"
 
-          bat  npm run ${params.Scripts}
+          bat  "npm run ${params.Scripts}"
      
     }
 }
