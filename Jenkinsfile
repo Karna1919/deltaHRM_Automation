@@ -51,7 +51,7 @@ pipeline {
         stage('Run Playwright Tests') {
  
           steps {
-        sh """
+         
             export URL='${params.URL}'
             export User_Name='$LOGIN_USR'
             export Password='$LOGIN_PSW'
@@ -59,8 +59,8 @@ pipeline {
             echo "Running Suite: ${params.Scripts}"
             echo "URL: \$URL"
 
-            npm run ${params.Scripts}
-        """
+          bat  npm run ${params.Scripts}
+     
     }
 }
     }
