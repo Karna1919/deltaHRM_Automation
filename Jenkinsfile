@@ -53,7 +53,7 @@ pipeline {
           steps {
          
          bat """
-set URL=${params.URL}
+set URL=%BASE_URL%
 set LOGIN=%LOGIN%
 set LOGIN_PSW=%LOGIN_PSW%
 npm run ${params.Scripts}
